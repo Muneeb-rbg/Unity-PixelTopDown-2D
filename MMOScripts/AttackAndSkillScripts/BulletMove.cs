@@ -13,7 +13,7 @@ public class BulletMove : MonoBehaviour {
 	public string shooterTag = "Player";
 	public GameObject hitEffect;
 	public bool passthroughWall = false;
-	//public float fwdPlusAfterSpawn = 0;
+	
 	
 	void Start(){
 		hitEffect = GetComponent<BulletStatus>().hitEffect;
@@ -21,16 +21,13 @@ public class BulletMove : MonoBehaviour {
 		if(GetComponent<Collider2D>()){
 			GetComponent<Collider2D>().isTrigger = true;
 		}
+  /////////////////////////////////////////////////////////updated///////////////////
 		Destroy(gameObject, duration);
-		/*if(fwdPlusAfterSpawn != 0 ){
-			Vector3 absoluteDirection = transform.rotation * relativeDirection;
-			transform.position += absoluteDirection * fwdPlusAfterSpawn;
-		}*/
+		
 	}
 	
 	void Update(){
-		//Vector3 absoluteDirection = transform.rotation * relativeDirection;
-		//transform.position += absoluteDirection * speed* Time.deltaTime;
+		
 
 		Vector3 dir = transform.TransformDirection(Vector3.right);
 		GetComponent<Rigidbody2D>().velocity = dir * speed;
