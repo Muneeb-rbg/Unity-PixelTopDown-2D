@@ -30,9 +30,9 @@ public class BulletSetParent : MonoBehaviour {
 		}
 	}
 	
-	void OnTriggerEnter2D(Collider2D other){
-		if(other.gameObject.tag == "Wall"){
-			if(hitEffect && !penetrate){
+	void OnTriggerEnter2D(Collider2D collider){
+		if(collider.gameObject.tag == "Wall"){
+			if(hitEffect == true && !penetrate){
 				Instantiate(hitEffect, transform.position , transform.rotation);
 			}
 			if(!penetrate){
